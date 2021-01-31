@@ -1,0 +1,59 @@
+\documentclass{article}
+
+
+\input{header.tex}
+
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+  \color{#1}\global\let\default@color\current@color
+}
+\makeatother
+
+%\AtBeginDocument{\globalcolor{yellow}}
+
+\begin{document}
+%\pagenumbering{gobble}
+%\pagecolor{black}
+
+\input{frontpage.tex}
+
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\pagenumbering{gobble}
+
+\newpage
+\pagenumbering{arabic}
+\section{Introduction}
+\input{introduction.tex}
+
+% \newpage
+\section{Clustering}
+\input{clustering/intro.tex}
+\input{clustering/gmm.tex}
+\input{clustering/hierarch.tex}
+\input{clustering/evaluation.tex}
+
+% \newpage
+\section{Outlier/anomaly detection}
+\input{outlier/config.tex}
+
+\section{Association mining}
+\input{association/association-mining.tex}
+
+\section{Conclusion}
+\input{conclusion.tex}
+\input{conclusionoverall.tex}
+\newpage
+% Bibliografi (hvis nogen var i tvivl...)
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\section*{Appendix}
+% Nedenstående tilføjer appendix til indholdsfortegnelse selvom det er skrevet ovenfor med \section*
+\addcontentsline{toc}{section}{Appendix: Group member contribution}
+\input{appendix/contribution.tex}
+
+
+\end{document}

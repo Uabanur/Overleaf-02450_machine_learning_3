@@ -1,0 +1,19 @@
+Since the \textcolor{Bittersweet}{\textit{glass identification problem}} is a classification problem, it is well suited for clustering without defining new attributes. In report 1, we presented the 6 glass types corresponding to the 6 classes in the classification problem. In the original data set, the authors enumerated them as type 1 through type 7, with no observations of type 4. The glass type (class) should be predicted from 9 continuous ratio attributes: 8 weight percent attributes (\texttt{Na, Mg, Al, Si, K, Ca, Ba, Fe}), and the refractive index \texttt{RI}.
+
+In report 2, we found that classifying the data points was not an easy task. Through two-layer cross validation, we trained and evaluated decision tree models, K-nearest neighbour models, and artificial neural network models. The estimated generalization errors for the best model in each method were as follows:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c c c}
+     & Decision tree & K-nearest neighbors & Artificial Neural Network \\ \hline
+    %%%% New row
+    \thead{Best\\parameters}     & \thead{Impurity measure = Gini \\ Pruning level = 1} & \thead{Distance measure = Correlation \\ K = 3} & \thead{H = 7 \\hidden nodes} \\ 
+    %%%% New row
+    $\hat{E}_{\texttt{gen}} $     & 23.9 \% & 19.1 \% & 28.6 \%
+    \end{tabular}
+    \caption{Table of performance results of the different models. From report 2.}
+    \label{classification-performance}
+\end{table}
+
+\vspace{-0.5 cm}
+The estimated generalization errors for classification were quite high, so it was difficult to predict the target classes $\bm{y}$ from the data matrix $\bm{X}$. One interpretation of the high classification error is that observations represented by similar rows in $\bm{X}$\footnote{$\bm{X}$ is a $N \times M$ matrix, where $N$ is the number of observations and $M$ is the number of features, so each row corresponds to an observation} often belonged to different classes. This suggests that the structure in the data matrix $\bm{X}$ does not strongly mirror the values in the class vector $\bm{y}$. Hence the \textcolor{blue}{unsupervised} clustering may very well divide the observations into non-overlapping sets quite different from the classes from the \textcolor{blue}{supervised} classification in report 2.

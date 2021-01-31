@@ -1,0 +1,11 @@
+\subsection{Evaluation of clustering results}
+
+The GMM results suggested the glass observations should be grouped into 7 clusters. Only two clusters clearly resembled glass type 7 from the supervised learning problem: the \textcolor{red}{red cluster} corresponds to the glass type "\texttt{type 2: building windows float processed}", the \textcolor{blue}{blue cluster} corresponds to "\texttt{type 7: headlamp}".
+
+The hierarchical clustering results depended heavily on the linkage function. In all cases, most observations were grouped into clusters in a difficult-to-interpret blob. This was expected, as the overlapping classes led to difficulties in report 1 and 2.
+
+\textbf{Single linkage} led to almost all results being in the same cluster at the 7-clusters cut-off (Fig \ref{fig:cluster_single_cor}). \textbf{Complete linkage} led to observations with completely different labels in the same cluster as the headlamp observations (Fig \ref{fig:cluster_complete_cor}), and the remaining clusters were difficult to interpret.
+
+\textbf{Ward linkage} led to two easily recognizable clusters (purple, green), corresponding to glass types "\texttt{type 2: building windows float processed}" and "\texttt{type 7: headlamp}" from the supervised classification problem. Interestingly, the remaining observations from the glass type 2 were grouped into other clusters.
+
+The GMM results and hierarchical ward results agree on the following: \textcolor{blue}{All observations corresponding to the label \texttt{type 7 headlamp} should be grouped into a separate cluster}, and \textcolor{red}{some observations with label \texttt{type 2 building windows float processed} should be grouped in a separate cluster!}
